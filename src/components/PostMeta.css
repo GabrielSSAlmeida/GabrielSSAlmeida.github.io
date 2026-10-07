@@ -1,0 +1,24 @@
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.post-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-meta__draft {
+  padding: 1px 6px;
+  border: 1px dashed var(--accent);
+  border-radius: 3px;
+  color: var(--accent-text);
+  font-size: 0.68rem;
+  font-weight: 700;
+}

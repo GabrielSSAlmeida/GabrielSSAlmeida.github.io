@@ -1,0 +1,30 @@
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo__accent,
+.logo__sep {
+  color: var(--accent);
+}
+
+.logo__sep {
+  animation: logo-blink 1.2s steps(1) infinite;
+}
+
+@keyframes logo-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo__sep {
+    animation: none;
+  }
+}

@@ -1,0 +1,159 @@
+.prose {
+  font-size: var(--post-font-size);
+  line-height: var(--post-line-height);
+  color: var(--text-body);
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-display);
+  color: var(--text);
+  letter-spacing: -0.015em;
+  line-height: var(--post-heading-line-height);
+  scroll-margin-top: 80px;
+}
+
+.prose h2 {
+  margin: 2.4em 0 0.8em;
+  font-size: var(--post-h2-size);
+}
+
+.prose h2::before {
+  content: '#';
+  margin-right: 10px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.prose h3 {
+  margin: 2em 0 0.6em;
+  font-size: var(--post-h3-size);
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose pre,
+.prose table {
+  margin: var(--post-paragraph-spacing) 0;
+}
+
+.prose a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-border);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+.prose strong {
+  color: var(--text);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose li {
+  margin: 0.35em 0;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose li:has(> input[type='checkbox']) {
+  list-style: none;
+  margin-left: -1.4em;
+}
+
+.prose input[type='checkbox'] {
+  accent-color: var(--accent);
+  margin-right: 8px;
+}
+
+.prose blockquote {
+  padding: 12px 20px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.prose blockquote > p {
+  margin: 0;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: var(--post-inline-code-size);
+}
+
+.prose :not(pre) > code {
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--accent-text);
+}
+
+.prose pre {
+  overflow-x: auto;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--code-bg);
+  line-height: var(--post-code-line-height);
+}
+
+.prose pre code {
+  font-size: var(--post-code-size);
+  background: none;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2em auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.prose table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--post-table-size);
+}
+
+.prose th,
+.prose td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.prose hr {
+  margin: 3em 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}

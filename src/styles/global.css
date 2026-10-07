@@ -1,0 +1,252 @@
+/* ---------- Theme tokens ---------- */
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0a0d14;
+  --surface: #10151f;
+  --surface-2: #161c28;
+  --code-bg: #0d1119;
+  --border: #222a38;
+  --border-soft: #191f2b;
+
+  --text: #eef1f6;
+  --text-body: #c6ccd7;
+  --text-muted: #98a2b3;
+  --text-faint: #667085;
+
+  --accent: #ef4444;
+  --accent-text: #f87171;
+  --accent-soft: rgba(239, 68, 68, 0.1);
+  --accent-border: rgba(239, 68, 68, 0.4);
+  --accent-glow: rgba(239, 68, 68, 0.14);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-2: #eef0f4;
+  --code-bg: #f3f4f7;
+  --border: #dde1e8;
+  --border-soft: #e7eaef;
+
+  --text: #0f1420;
+  --text-body: #2f3747;
+  --text-muted: #556070;
+  --text-faint: #8590a0;
+
+  --accent: #dc2626;
+  --accent-text: #c81e1e;
+  --accent-soft: rgba(220, 38, 38, 0.07);
+  --accent-border: rgba(220, 38, 38, 0.35);
+  --accent-glow: rgba(220, 38, 38, 0.12);
+}
+
+:root {
+  /* Page widths. Fonts and post text sizes are in typography.css. */
+  --max-wide: 1240px;
+  --max-content: 1200px;
+  --max-narrow: 800px;
+  --gutter: 24px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--accent-text);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ---------- Layout helpers ---------- */
+
+.container {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 0;
+}
+
+.container--narrow {
+  max-width: calc(var(--max-narrow) + 2 * var(--gutter));
+}
+
+.container--prose {
+  max-width: calc(var(--post-width) + 2 * var(--gutter));
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 16px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-soft);
+}
+
+.about__section > .section-label {
+  margin-bottom: 24px;
+}
+
+.empty-state {
+  padding: 64px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.post__header-inner > .back-link {
+  margin-bottom: 0;
+}
+
+.back-link:hover {
+  color: var(--accent-text);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #dc2626;
+}
+
+.btn--ghost {
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.icon-btn:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

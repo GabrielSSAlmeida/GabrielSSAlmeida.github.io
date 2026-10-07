@@ -1,0 +1,41 @@
+/* =====================================================================
+   TYPOGRAPHY SETTINGS
+   Edit the values below to change how text looks. Nothing else needed.
+
+   Units: 1rem = 16px (browser default). So 1.1rem ≈ 17.6px.
+          "em" is relative to the surrounding text size.
+   ===================================================================== */
+
+:root {
+  /* ---------- Fonts (whole site) ----------
+     To use a different Google Font, also update the <link> in index.html
+     (https://fonts.google.com → pick font → "Get embed code"). */
+  --font-display: 'Space Grotesk', system-ui, sans-serif; /* titles and headings */
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; /* paragraphs, UI */
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; /* code, tags, dates */
+
+  /* ---------- Post page ---------- */
+  --post-width: 740px; /* max width of the text column */
+
+  /* Header */
+  --post-title-size: clamp(2rem, 5vw, 2.9rem); /* clamp(min, scales with screen, max) */
+  --post-description-size: 1.1rem;
+
+  /* Body text */
+  --post-font-size: 1.04rem;
+  --post-line-height: 1.8; /* space between lines, × font size */
+  --post-paragraph-spacing: 1.2em; /* gap between paragraphs, lists, code blocks… */
+
+  /* Headings inside the post (## and ###) */
+  --post-h2-size: 1.6rem;
+  --post-h3-size: 1.25rem;
+  --post-heading-line-height: 1.3;
+
+  /* Code */
+  --post-code-size: 0.85rem; /* ``` code blocks ``` */
+  --post-code-line-height: 1.6;
+  --post-inline-code-size: 0.86em; /* `inline code`, relative to the text around it */
+
+  /* Tables */
+  --post-table-size: 0.92rem;
+}
