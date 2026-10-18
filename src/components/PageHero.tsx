@@ -12,12 +12,12 @@ interface PageHeroProps {
 /** Page header: title + subtitle, with an optional right-aligned slot. */
 export function PageHero({ title, subtitle, aside, children }: PageHeroProps) {
   return (
-    <section className="hero">
-      <div className="hero__inner">
+    <section className="border-bottom border-soft">
+      <div className="hero__inner d-flex justify-content-between mx-auto">
         <div className="hero__text">
-          <span className="hero__dash" />
-          <h1 className="hero__title">{title}</h1>
-          {subtitle && <p className="hero__subtitle">{subtitle}</p>}
+          <span className="hero__dash d-block mb-4 bg-primary" />
+          <h1 className="hero__title m-0">{title}</h1>
+          {subtitle && <p className="hero__subtitle mb-0 text-body-secondary">{subtitle}</p>}
           {children}
         </div>
         {aside && <div className="hero__aside">{aside}</div>}

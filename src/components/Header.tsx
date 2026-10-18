@@ -13,26 +13,28 @@ const NAV = [
 
 export function Header() {
   return (
-    <header className="header">
-      <div className="header__inner">
+    <header className="header sticky-top border-bottom border-soft">
+      <div className="header__inner d-grid align-items-center mx-auto">
         <Logo />
-        <nav className="header__nav" aria-label="Main">
+        <nav className="header__nav d-flex" aria-label="Main">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) => `header__link${isActive ? ' is-active' : ''}`}
+              className={({ isActive }) =>
+                `header__link position-relative fw-medium text-decoration-none${isActive ? ' is-active' : ''}`
+              }
             >
               {item.label}
             </NavLink>
           ))}
         </nav>
-        <div className="header__actions">
-          <a className="icon-btn" href={githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub">
+        <div className="d-flex align-items-center justify-content-end gap-1">
+          <a className="btn btn-icon d-inline-grid" href={githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub">
             <GithubIcon />
           </a>
-          <a className="icon-btn" href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a className="btn btn-icon d-inline-grid" href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <LinkedinIcon />
           </a>
           <span className="header__divider" />

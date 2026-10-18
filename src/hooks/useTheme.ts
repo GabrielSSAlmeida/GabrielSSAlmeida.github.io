@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react'
 export type Theme = 'dark' | 'light'
 
 function currentTheme(): Theme {
-  return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'
+  return document.documentElement.dataset.bsTheme === 'light' ? 'light' : 'dark'
 }
 
 /** The initial theme is applied by the inline script in index.html; this hook just reads and toggles it. */
@@ -12,7 +12,7 @@ export function useTheme() {
 
   const toggle = useCallback(() => {
     const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark'
-    document.documentElement.dataset.theme = next
+    document.documentElement.dataset.bsTheme = next
     try {
       localStorage.setItem('theme', next)
     } catch {

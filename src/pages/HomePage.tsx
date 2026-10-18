@@ -39,11 +39,12 @@ export function HomePage() {
   const filtered = useMemo(() => posts.filter((p) => matches(p, query.trim(), tag)), [query, tag])
 
   const controls = (
-    <div className="home-controls">
-      <label className="search">
-        <SearchIcon className="search__icon" />
+    <div className="d-flex home-controls">
+      <label className="search position-relative d-block flex-grow-1">
+        <SearchIcon className="search__icon position-absolute top-50 translate-middle-y text-body-tertiary" />
         <input
           type="search"
+          className="form-control"
           placeholder="Search posts…"
           value={query}
           onChange={(e) => update('q', e.target.value)}
@@ -53,14 +54,14 @@ export function HomePage() {
       {allTags.length > 0 && (
         <button
           type="button"
-          className={`filter-btn${filtersOpen ? ' is-open' : ''}`}
+          className={`filter-btn btn btn-toggle d-inline-flex align-items-center gap-2 flex-shrink-0 font-monospace${filtersOpen ? ' active' : ''}`}
           onClick={() => setFiltersOpen((o) => !o)}
           aria-expanded={filtersOpen}
           aria-controls="tag-bar"
         >
           <FilterIcon />
           Filters
-          {tag && <span className="filter-btn__count">1</span>}
+          {tag && <span className="filter-btn__count badge d-grid position-static rounded-pill bg-primary fw-bold">1</span>}
         </button>
       )}
     </div>
@@ -71,8 +72,8 @@ export function HomePage() {
       <PageHero title="Blog" subtitle={site.tagline} aside={controls} />
 
       {filtersOpen && allTags.length > 0 && (
-        <div className="tag-bar" id="tag-bar">
-          <div className="tag-bar__inner">
+        <div className="border-bottom border-soft" id="tag-bar">
+          <div className="tag-bar__inner d-flex flex-wrap gap-2 mx-auto">
             <Tag variant="chip" active={!tag} onClick={() => update('tag', null)}>
               ALL
             </Tag>
@@ -85,7 +86,7 @@ export function HomePage() {
         </div>
       )}
 
-      <div className="container home">
+      <div className="page mx-auto pt-5 d-flex flex-column home">
         {posts.length === 0 ? (
           <EmptyState>No posts yet. Stay tuned!</EmptyState>
         ) : filtered.length === 0 ? (

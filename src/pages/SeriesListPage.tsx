@@ -12,7 +12,7 @@ export function SeriesListPage() {
   return (
     <>
       <PageHero title="Series" subtitle="Posts grouped into in-depth, multi-part deep dives. Best read in order." />
-      <div className="container container--narrow stack">
+      <div className="page page--narrow mx-auto pt-5 d-flex flex-column stack">
         {visible.length === 0 ? (
           <EmptyState>No series yet.</EmptyState>
         ) : (

@@ -36,6 +36,42 @@
   font-size: var(--post-h3-size);
 }
 
+/* Headings Markdown can produce but the post styles don't use: browser default sizes (Bootstrap's are bigger). */
+.prose h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+}
+
+.prose h4 {
+  margin: 1.33em 0;
+  font-size: 1em;
+}
+
+.prose h5 {
+  margin: 1.67em 0;
+  font-size: 0.83em;
+}
+
+.prose h6 {
+  margin: 2.33em 0;
+  font-size: 0.67em;
+}
+
+.prose sup,
+.prose sub {
+  position: static;
+  font-size: smaller;
+  line-height: inherit;
+}
+
+.prose sup {
+  vertical-align: super;
+}
+
+.prose sub {
+  vertical-align: sub;
+}
+
 .prose p,
 .prose ul,
 .prose ol,
@@ -80,7 +116,7 @@
 
 .prose input[type='checkbox'] {
   accent-color: var(--accent);
-  margin-right: 8px;
+  margin: 3px 8px 3px 4px;
 }
 
 .prose blockquote {
@@ -98,6 +134,7 @@
 .prose code {
   font-family: var(--font-mono);
   font-size: var(--post-inline-code-size);
+  word-wrap: normal; /* undo Bootstrap's break-word */
 }
 
 .prose :not(pre) > code {
@@ -110,6 +147,8 @@
 
 .prose pre {
   overflow-x: auto;
+  font-family: monospace;
+  font-size: inherit;
   padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: 10px;

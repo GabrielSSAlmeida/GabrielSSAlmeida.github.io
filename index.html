@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -16,12 +16,12 @@
       // Apply the saved theme before first paint to avoid a flash. Dark is the default.
       try {
         var t = localStorage.getItem('theme');
-        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.bsTheme = t;
       } catch (e) {}
     </script>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="min-vh-100">
+    <div id="root" class="d-flex flex-column min-vh-100"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

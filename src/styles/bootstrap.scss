@@ -1,0 +1,80 @@
+// Bootstrap, configured to match the site's design.
+// Colors are theme-dependent, so they aren't set here: global.css maps Bootstrap's CSS variables
+// (--bs-body-bg, --bs-primary-rgb, ...) onto the site's tokens. Fonts come from typography.css.
+
+@import 'bootstrap/scss/functions';
+
+// ---------- Options ----------
+$enable-smooth-scroll: false; // route changes jump to the top instantly
+
+// ---------- Typography ----------
+$font-family-sans-serif: var(--font-body);
+$font-family-monospace: var(--font-mono);
+$headings-font-weight: 700;
+$headings-line-height: inherit;
+$small-font-size: smaller;
+$hr-opacity: 1;
+
+// ---------- Buttons ----------
+$btn-padding-y: 10px;
+$btn-padding-x: 18px;
+$btn-font-size: 0.9rem;
+$btn-font-weight: 600;
+$btn-white-space: nowrap;
+$btn-focus-width: 0; // focus is shown with the global outline (global.css)
+$btn-transition:
+  color 0.15s,
+  background-color 0.15s,
+  border-color 0.15s;
+
+// ---------- Cards ----------
+$card-border-color: var(--border);
+$card-border-radius: 12px;
+$card-bg: var(--surface);
+
+// ---------- Badges (tags on cards) ----------
+$badge-padding-y: 3px;
+$badge-padding-x: 8px;
+$badge-font-size: 0.72rem;
+$badge-font-weight: 500;
+
+// ---------- Inputs ----------
+$input-padding-y: 12px;
+$input-padding-x: 16px;
+$input-font-family: var(--font-mono);
+$input-font-size: 0.88rem;
+$input-bg: var(--surface);
+$input-placeholder-color: var(--text-faint);
+$input-focus-border-color: var(--accent);
+$input-focus-box-shadow: 0 0 0 3px var(--accent-soft);
+$input-transition: border-color 0.15s;
+
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+
+// `.border-soft`: the subtle divider color used by the header, footer and page sections.
+$utilities: map-merge(
+  $utilities,
+  (
+    'border-color':
+      map-merge(
+        map-get($utilities, 'border-color'),
+        (
+          values: map-merge(map-get(map-get($utilities, 'border-color'), 'values'), ('soft': var(--border-soft))),
+        )
+      ),
+  )
+);
+
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/badge';
+@import 'bootstrap/scss/forms/form-control';
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/utilities/api';

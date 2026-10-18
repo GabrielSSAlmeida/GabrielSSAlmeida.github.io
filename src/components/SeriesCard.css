@@ -1,31 +1,21 @@
 .series-card {
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
   transition: border-color 0.2s;
 }
 
 .series-card:hover {
-  border-color: var(--accent-border);
+  --bs-card-border-color: var(--accent-border);
 }
 
 .series-card__media {
-  display: block;
-  text-decoration: none;
   height: 200px;
-  border-bottom: 1px solid var(--border-soft);
 }
 
 .series-card__body {
-  display: flex;
-  flex-direction: column;
   gap: 14px;
   padding: 28px 32px 32px;
 }
 
 .series-card__title {
-  margin: 0;
   font-family: var(--font-display);
   font-size: 1.6rem;
   letter-spacing: -0.02em;
@@ -33,7 +23,6 @@
 
 .series-card__title a {
   color: inherit;
-  text-decoration: none;
 }
 
 .series-card__title a:hover {
@@ -41,12 +30,8 @@
 }
 
 .series-card__meta {
-  display: flex;
-  flex-wrap: wrap;
   gap: 8px 18px;
-  font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--text-faint);
 }
 
 .series-card__meta span + span::before {
@@ -56,29 +41,20 @@
 }
 
 .series-card__desc {
-  margin: 0;
-  color: var(--text-muted);
   line-height: 1.65;
 }
 
 .series-card__list {
   padding: 18px 20px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--bg);
 }
 
 .series-card__list-label {
   margin: 0 0 10px;
-  font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-faint);
 }
 
 .series-card__list ol {
-  margin: 0;
   padding-left: 1.4em;
   font-size: 0.93rem;
   line-height: 1.9;
@@ -91,7 +67,6 @@
 
 .series-card__list a {
   color: var(--text-body);
-  text-decoration: none;
 }
 
 .series-card__list a:hover {
@@ -99,21 +74,12 @@
 }
 
 .series-card__more {
-  display: inline-block;
   margin-top: 6px;
   font-size: 0.85rem;
-  color: var(--accent-text);
-  text-decoration: none;
 }
 
 .series-card__cta {
-  display: inline-flex;
-  align-items: center;
   gap: 6px;
-  align-self: flex-start;
-  font-weight: 600;
-  color: var(--accent-text);
-  text-decoration: none;
 }
 
 .series-card__cta svg {

@@ -1,7 +1,7 @@
 /* Syntax highlighting for code blocks (highlight.js classes), themed for dark and light. */
 
 :root,
-:root[data-theme='dark'] {
+:root[data-bs-theme='dark'] {
   --hl-text: #d6dbe4;
   --hl-comment: #6b7686;
   --hl-keyword: #ff7b72;
@@ -12,7 +12,7 @@
   --hl-meta: #7dd3fc;
 }
 
-:root[data-theme='light'] {
+:root[data-bs-theme='light'] {
   --hl-text: #24292f;
   --hl-comment: #6e7781;
   --hl-keyword: #cf222e;

@@ -23,4 +23,13 @@ function githubPagesSpaFallback(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), githubPagesSpaFallback()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Bootstrap 5's Sass still uses @import and global functions; hide those upstream warnings.
+        quietDeps: true,
+        silenceDeprecations: ['import', 'global-builtin', 'color-functions', 'if-function'],
+      },
+    },
+  },
 })

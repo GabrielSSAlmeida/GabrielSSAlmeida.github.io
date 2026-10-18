@@ -1,11 +1,7 @@
 .series-hero__meta {
-  display: flex;
-  flex-wrap: wrap;
   gap: 8px 18px;
   margin-top: 24px;
-  font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--text-faint);
 }
 
 .series-hero__meta span + span::before {
@@ -15,23 +11,9 @@
 }
 
 .series-page__cover {
-  display: block;
-  width: 100%;
   max-height: 280px;
-  object-fit: cover;
   margin-bottom: 32px;
-  border: 1px solid var(--border);
   border-radius: 12px;
-}
-
-.series-posts {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 /* vertical rail connecting the numbers */
@@ -46,38 +28,23 @@
 }
 
 .series-post {
-  position: relative;
-  display: flex;
   gap: 20px;
   padding: 24px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
   transition: border-color 0.2s;
 }
 
 .series-post:hover {
-  border-color: var(--accent-border);
+  --bs-card-border-color: var(--accent-border);
 }
 
 .series-post__num {
-  flex: none;
-  display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
-  border: 1px solid var(--accent-border);
-  border-radius: 50%;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-family: var(--font-mono);
   font-size: 0.85rem;
-  font-weight: 700;
 }
 
 .series-post__body {
-  display: flex;
-  flex-direction: column;
   gap: 10px;
   min-width: 0;
 }
@@ -91,13 +58,6 @@
 
 .series-post__title a {
   color: var(--text);
-  text-decoration: none;
-}
-
-.series-post__title a::after {
-  content: '';
-  position: absolute;
-  inset: 0;
 }
 
 .series-post:hover .series-post__title a {
@@ -105,8 +65,6 @@
 }
 
 .series-post__desc {
-  margin: 0;
-  color: var(--text-muted);
   font-size: 0.93rem;
   line-height: 1.65;
 }

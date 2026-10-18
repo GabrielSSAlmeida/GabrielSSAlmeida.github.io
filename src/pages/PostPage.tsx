@@ -20,29 +20,29 @@ export function PostPage() {
   const s = post.series ? getSeries(post.series) : undefined
 
   return (
-    <article className="post">
-      <header className="post__header">
-        <div className="post__header-inner">
-          <Link to="/" className="back-link">
+    <article>
+      <header className="border-bottom border-soft">
+        <div className="post__header-inner d-flex flex-column mx-auto">
+          <Link to="/" className="back-link d-inline-flex align-items-center align-self-start font-monospace text-decoration-none">
             <ArrowLeftIcon /> All posts
           </Link>
           {post.tags.length > 0 && (
-            <div className="post__tags">
+            <div className="post__tags d-flex flex-wrap">
               {post.tags.map((t) => (
-                <Link key={t} to={`/?tag=${encodeURIComponent(t)}`} className="post__tag-link">
+                <Link key={t} to={`/?tag=${encodeURIComponent(t)}`} className="text-decoration-none">
                   <Tag>{t}</Tag>
                 </Link>
               ))}
             </div>
           )}
-          <h1 className="post__title">{post.title}</h1>
-          {post.description && <p className="post__desc">{post.description}</p>}
+          <h1 className="post__title m-0">{post.title}</h1>
+          {post.description && <p className="post__desc m-0 text-body-secondary">{post.description}</p>}
           <PostMeta post={post} />
         </div>
       </header>
 
-      <div className="container container--prose">
-        {post.cover && <img className="post__cover" src={post.cover} alt="" />}
+      <div className="page page--prose mx-auto pt-5">
+        {post.cover && <img className="post__cover d-block w-100 border" src={post.cover} alt="" />}
         {s && <SeriesToc series={s} current={post} />}
         <Suspense fallback={<div className="post__loading" />}>
           <Markdown>{post.body}</Markdown>
@@ -56,15 +56,23 @@ export function PostPage() {
 function SeriesToc({ series, current }: { series: Series; current: Post }) {
   const index = series.posts.findIndex((p) => p.slug === current.slug)
   return (
-    <aside className="series-toc">
-      <p className="series-toc__label">
+    <aside className="series-toc rounded-3 bg-body-tertiary">
+      <p className="series-toc__label font-monospace text-body-tertiary">
         Part {index + 1} of {series.posts.length} in{' '}
-        <Link to={`/series/${series.slug}`}>{series.title}</Link>
+        <Link to={`/series/${series.slug}`} className="text-decoration-none">
+          {series.title}
+        </Link>
       </p>
-      <ol>
+      <ol className="m-0">
         {series.posts.map((p) => (
-          <li key={p.slug} className={p.slug === current.slug ? 'is-current' : undefined}>
-            {p.slug === current.slug ? <span>{p.title}</span> : <Link to={`/posts/${p.slug}`}>{p.title}</Link>}
+          <li key={p.slug} className={p.slug === current.slug ? 'is-current fw-semibold' : undefined}>
+            {p.slug === current.slug ? (
+              <span>{p.title}</span>
+            ) : (
+              <Link to={`/posts/${p.slug}`} className="text-decoration-none">
+                {p.title}
+              </Link>
+            )}
           </li>
         ))}
       </ol>
@@ -78,23 +86,23 @@ function SeriesPager({ series, current }: { series: Series; current: Post }) {
   const next = series.posts[index + 1]
   if (!prev && !next) return null
   return (
-    <nav className="pager" aria-label="Series navigation">
+    <nav className="pager d-grid border-top" aria-label="Series navigation">
       {prev ? (
-        <Link to={`/posts/${prev.slug}`} className="pager__link">
-          <span className="pager__dir">
+        <Link to={`/posts/${prev.slug}`} className="pager__link card text-decoration-none">
+          <span className="pager__dir d-inline-flex align-items-center font-monospace text-body-tertiary">
             <ArrowLeftIcon /> Previous
           </span>
-          <span className="pager__title">{prev.title}</span>
+          <span className="pager__title fw-semibold">{prev.title}</span>
         </Link>
       ) : (
         <span />
       )}
       {next && (
-        <Link to={`/posts/${next.slug}`} className="pager__link pager__link--next">
-          <span className="pager__dir">
+        <Link to={`/posts/${next.slug}`} className="pager__link card text-decoration-none text-end">
+          <span className="pager__dir d-inline-flex align-items-center justify-content-end font-monospace text-body-tertiary">
             Next <ArrowRightIcon />
           </span>
-          <span className="pager__title">{next.title}</span>
+          <span className="pager__title fw-semibold">{next.title}</span>
         </Link>
       )}
     </nav>

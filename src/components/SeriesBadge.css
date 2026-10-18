@@ -1,11 +1,6 @@
 .series-badge {
-  position: relative;
   z-index: 2; /* sits above the card's stretched link */
-  align-self: flex-start;
-  font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
-  text-decoration: none;
 }
 
 .series-badge::before {
@@ -20,7 +15,6 @@
 }
 
 .series-badge strong {
-  font-weight: 500;
   color: var(--text);
 }
 
