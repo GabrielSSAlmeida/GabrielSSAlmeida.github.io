@@ -2,9 +2,9 @@
 
 export const site = {
   name: 'Gabriel Almeida',
-  tagline: 'Technical writing on software, embedded systems and the tools I use.',
+  tagline: 'R&D Intern @Toradex | Computer Science Student @USP',
   githubUser: 'GabrielSSAlmeida',
-  linkedin: 'https://www.linkedin.com/in/your-profile/', // TODO
+  linkedin: 'https://www.linkedin.com/in/gabriel-almeida-3873a9243/',
   email: '', // optional; leave empty to hide
 }
 
@@ -21,7 +21,7 @@ export interface TimelineItem {
 
 // TODO: fill in with your own text and résumé.
 export const about = {
-  role: 'Software Engineer',
+  role: 'Software Engineer | Embedded Software Engineer',
   location: 'Brazil',
   bio: [
     "Hi, I'm Gabriel. Write a short paragraph here about who you are and what you work on.",
@@ -43,10 +43,26 @@ export const about = {
   ] satisfies TimelineItem[],
   education: [
     {
-      title: 'Your degree',
-      place: 'University',
-      period: '2019 — 2024',
+      title: "Bachelor's degree in Computer Science",
+      place: 'University of São Paulo (ICMC)',
+      period: '2022 — 2027',
+    },
+    {
+      title: 'Associate of Information Technology',
+      place: 'ETEC Uirapuru',
+      period: '2018 — 2021',
     },
   ] satisfies TimelineItem[],
-  skills: ['C', 'C++', 'Python', 'TypeScript', 'Linux', 'Git'],
+  skills: [
+    'C',
+    'C++',
+    'Linux',
+    'Linux Kernel',
+    'Yocto',
+    'U-boot',
+    'React',
+    'Python',
+    'TypeScript',
+    'Git',
+  ],
 }
