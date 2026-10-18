@@ -1,4 +1,7 @@
 import { seriesDefinitions, type SeriesDefinition } from '../content/series'
+// Every .md file in src/content/posts is a post; its file name (minus .md) is the URL slug.
+// The list comes from the `posts` plugin in vite.config.ts, which drops drafts from production builds.
+import files from 'virtual:posts'
 import { parseFrontmatter } from './frontmatter'
 
 export interface Post {
@@ -19,13 +22,6 @@ export interface Series extends SeriesDefinition {
   posts: Post[]
   startedAt?: Date
 }
-
-// Every .md file in src/content/posts is a post; its file name (minus .md) is the URL slug.
-const files = import.meta.glob<string>('../content/posts/*.md', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-})
 
 const seriesSlugs = new Set(seriesDefinitions.map((s) => s.slug))
 
@@ -68,13 +64,12 @@ function toPost(path: string, raw: string): Post {
   }
 }
 
-/** All published posts, newest first. Drafts are only visible in `npm run dev`. */
+/** All posts, newest first. Drafts only exist in `npm run dev` (see vite.config.ts). */
 export const posts: Post[] = Object.entries(files)
   .map(([path, raw]) => toPost(path, raw))
-  .filter((p) => import.meta.env.DEV || !p.draft)
   .sort((a, b) => b.date.getTime() - a.date.getTime())
 
-/** All series, each with its posts in reading order, most recently active first. */
+/** Series with at least one post, each with its posts in reading order, most recently active first. */
 export const series: Series[] = seriesDefinitions
   .map((def) => {
     const seriesPosts = posts
@@ -90,6 +85,8 @@ export const series: Series[] = seriesDefinitions
     )
     return { ...def, posts: seriesPosts, startedAt }
   })
+  // A series with no published posts doesn't exist on the site (its page is a 404).
+  .filter((s) => s.posts.length > 0)
   .sort((a, b) => latest(b) - latest(a))
 
 function latest(s: Series): number {
